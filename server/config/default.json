@@ -1,0 +1,5 @@
+{
+  "serverPort": 5000,
+  "dbUrl": "mongodb+srv://Kurtonchik:a7loPCRuuioFCA0X@cloud.ssprz.mongodb.net/cloud?retryWrites=true&w=majority",
+  "secretKey": "KFSbbuhBK235G"
+}
