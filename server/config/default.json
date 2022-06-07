@@ -1,5 +1,6 @@
 {
   "serverPort": 5000,
   "dbUrl": "mongodb+srv://Kurtonchik:a7loPCRuuioFCA0X@cloud.ssprz.mongodb.net/cloud?retryWrites=true&w=majority",
-  "secretKey": "KFSbbuhBK235G"
+  "secretKey": "KFSbbuhBK235G",
+  "filePath": "C:\\Users\\kurto\\Documents\\GitHub\\mern-stack-cloud-storage\\server\\files"
 }
