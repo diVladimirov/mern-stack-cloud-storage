@@ -1,13 +1,11 @@
 import { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch} from "react-redux";
 import userOperations from "../redux/user/userOperations";
 
 const LoginPage = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const dispath = useDispatch();
-  const isAuth = useSelector((state) => state.user.isAuth);
-  console.log(isAuth);
 
   const handleChange = ({ target: { name, value } }) => {
     switch (name) {

@@ -16,7 +16,7 @@ import fileReducer from "./file/fileSlice";
 const userPersistConfig = {
   key: "user",
   storage,
-  whitelist: ["token", "isAuth"],
+  whitelist: ["token"],
 };
 
 const store = configureStore({
