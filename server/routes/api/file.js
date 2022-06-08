@@ -1,10 +1,10 @@
 const express = require("express");
 const { auth } = require("../../middlewares");
-const fileController = require("../../controllers/fileController/fileController");
+const { file: ctrl } = require("../../controllers");
 
 const router = express.Router();
 
-router.post("", auth, fileController.createDir);
-router.get("", auth, fileController.getFiles);
+router.post("", auth, ctrl.createDir);
+router.get("", auth, ctrl.getFiles);
 
 module.exports = router;
