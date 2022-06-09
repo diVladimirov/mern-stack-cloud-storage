@@ -1,6 +1,9 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const initialState = {};
+const initialState = {
+  files: [],
+  currentDir: null,
+};
 
 export const fileSlice = createSlice({
   name: "file",
