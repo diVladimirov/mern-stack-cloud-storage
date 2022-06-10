@@ -7,6 +7,9 @@ const token = {
   set(token) {
     axios.defaults.headers.common.Authorization = `Bearer ${token}`;
   },
+  unset() {
+    axios.defaults.headers.common.Authorization = "";
+  },
 };
 
 const createNewUser = createAsyncThunk(
@@ -26,6 +29,7 @@ const logIn = createAsyncThunk(
   async (userData, { rejectWithValue }) => {
     try {
       const { data } = await axios.post("/auth/login", userData);
+      token.set(data.token);
       return data;
     } catch (error) {
       return rejectWithValue(error.message);
@@ -38,6 +42,7 @@ const logOut = createAsyncThunk(
   async (_, { rejectWithValue }) => {
     try {
       await axios.post("/auth/logout");
+      token.unset();
     } catch (error) {
       return rejectWithValue(error.message);
     }

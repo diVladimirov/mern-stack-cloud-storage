@@ -15,7 +15,7 @@ const createDir = async (req, res) => {
       parentFile.childs.push(file._id);
       await parentFile.save();
     }
-    await file.save();
+
     return res.json(file);
   } catch (error) {
     console.log(error);

@@ -1,6 +1,6 @@
 const bcrypt = require("bcrypt");
 const { User } = require("../../models/");
-const fileServices = require("../../services/createFileDirService");
+const createFileDirService = require("../../services/createFileDirService");
 const { File } = require("../../models");
 
 const signup = async (req, res) => {
@@ -14,7 +14,7 @@ const signup = async (req, res) => {
     }
     const hashPassword = bcrypt.hashSync(password, bcrypt.genSaltSync(10));
     const newUser = await User.create({ email, password: hashPassword });
-    await fileServices.createDir(new File({ user: newUser.id, name: "" }));
+    await createFileDirService(new File({ user: newUser.id, name: "" }));
     const { diskSpace, usedSpace } = newUser;
     res.status(201).json({
       status: "success",

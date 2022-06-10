@@ -10,7 +10,7 @@ const createFileDirService = (file) => {
   return new Promise((resolve, reject) => {
     try {
       if (!fs.existsSync(filePath)) {
-        fs.mkdirSync(filePath);
+        fs.mkdirSync(filePath, { recursive: true });
         return resolve({ message: "File was created" });
       } else {
         return reject({ message: "File already exist" });

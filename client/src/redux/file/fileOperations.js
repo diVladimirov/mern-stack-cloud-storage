@@ -8,7 +8,7 @@ const getFiles = createAsyncThunk(
       const { data } = await axios.get(
         `/files${dirId ? "?parent=" + dirId : ""}`
       );
-      console.log(data);
+      return data;
     } catch (error) {
       return rejectWithValue(error.message);
     }
