@@ -17,6 +17,7 @@ const fileSchema = Schema({
     default: 0,
   },
   path: { type: String, default: "" },
+  date: { type: Date, default: Date.now() },
   user: { type: ObjectId, ref: "User" },
   parent: { type: ObjectId, ref: "File" },
   childs: [{ type: ObjectId, ref: "File" }],

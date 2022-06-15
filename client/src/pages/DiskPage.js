@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import fileOperations from "../redux/file/fileOperations";
+import FileList from "../components/Disk/FileList/FileList";
 
 const DiskPage = () => {
   const dispatch = useDispatch();
@@ -18,6 +19,7 @@ const DiskPage = () => {
         Buttons<button>Back</button>
         <button>Create folder</button>
       </div>
+      <FileList />
     </div>
   );
 };
