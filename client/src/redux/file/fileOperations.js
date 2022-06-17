@@ -15,6 +15,22 @@ const getFiles = createAsyncThunk(
   }
 );
 
-const operations = { getFiles };
+const createDir = createAsyncThunk(
+  "file/createDirStatus",
+  async ({ dirId, name }, { rejectWithValue }) => {
+    try {
+      const { data } = await axios.post("/files", {
+        name,
+        parent: dirId,
+        type: "dir",
+      });
+      return data;
+    } catch (error) {
+      return rejectWithValue(error.message);
+    }
+  }
+);
+
+const operations = { getFiles, createDir };
 
 export default operations;

@@ -7,7 +7,6 @@ const DiskPage = () => {
   const dispatch = useDispatch();
   const currentDir = useSelector((state) => state.file.currentDir);
   const files = useSelector((state) => state.file.files);
-  console.log(files);
 
   useEffect(() => {
     dispatch(fileOperations.getFiles(currentDir));

@@ -13,6 +13,11 @@ export const fileSlice = createSlice({
   extraReducers: {
     [fileOperations.getFiles.fulfilled]: (state, action) => {
       state.files = action.payload;
+      // state.currentDir = action.payload;
+      console.log(action.payload);
+    },
+    [fileOperations.createDir.fulfilled]: (state, action) => {
+      state.files.push(action.payload);
     },
   },
 });
