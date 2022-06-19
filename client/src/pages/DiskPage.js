@@ -6,17 +6,21 @@ import FileList from "../components/Disk/FileList/FileList";
 const DiskPage = () => {
   const dispatch = useDispatch();
   const currentDir = useSelector((state) => state.file.currentDir);
-  const files = useSelector((state) => state.file.files);
+  console.log(currentDir);
 
   useEffect(() => {
     dispatch(fileOperations.getFiles(currentDir));
   }, [currentDir, dispatch]);
+
+  const createDirHandler = () => {
+    dispatch(fileOperations.createDir(currentDir, "self"));
+  };
   return (
     <div>
       Disk Page
       <div>
         Buttons<button>Back</button>
-        <button>Create folder</button>
+        <button onClick={createDirHandler}>Create folder</button>
       </div>
       <FileList />
     </div>

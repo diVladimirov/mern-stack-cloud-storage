@@ -10,6 +10,7 @@ const getFiles = createAsyncThunk(
         url = `/files?parent=${dirId}`;
       }
       const { data } = await axios.get(url);
+      console.log(data);
       return data;
     } catch (error) {
       return rejectWithValue(error.message);
@@ -20,6 +21,8 @@ const getFiles = createAsyncThunk(
 const createDir = createAsyncThunk(
   "file/createDirStatus",
   async ({ dirId, name }, { rejectWithValue }) => {
+    console.log(dirId);
+    console.log(name);
     try {
       const { data } = await axios.post("/files", {
         name,
